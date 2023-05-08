@@ -35,7 +35,6 @@ body{
 
 header{
     padding-block: 1.2rem;
-    margin-block-end: 2rem;
 
     text-align: center;
 
@@ -48,11 +47,12 @@ header{
 
 main{
     display: flex;
-    direction: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
     width: 100%;
+    margin-block: 2rem;
 }
 .product-list{
     display: flex;
@@ -78,10 +78,10 @@ main{
 .product-img-container{
     display: flex;
 
-    max-width: 200px;
+    width: 200px;
 }
 .product-img{
-    width: 100%;
+    min-width: 100%;
     border-radius: .45rem;
     
     object-fit: cover;
@@ -116,4 +116,41 @@ main{
 }
 .product-close-container img:hover{
     background-color: var(--light-grey);
+}
+
+
+/* || New Product Aside */
+.new-product{
+    display: grid;
+    gap: 1rem;
+    
+    padding: 1rem;
+    border: 2px solid var(--black);
+    border-radius: .5rem;
+
+    text-align: center;
+}
+.new-product form{
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+
+    width: 30rem;
+}
+.new-product form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 1.8rem;
+
+    user-select: none;
+}
+.new-product label{
+    align-self: center;
+
+
+}
+.new-product input{
+    width: 18rem;
 }
