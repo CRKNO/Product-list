@@ -1,10 +1,27 @@
 const productList = document.querySelector(".product-list");
+const newProductAside = document.querySelector(".new-product-form");
 
 const products = [];
 
 const closeIconSrc = "images/cross-23.png";
 
 let a;
+
+
+function newProduct(event){
+    event.preventDefault();
+
+    let newproductName = event.target.children[0].children[1].value;
+    let newproductPrice = Number(event.target.children[1].children[1].value);
+    let newproductImg = event.target.children[2].children[1].value;
+    let newProductId = products.length;
+
+    products.push(new productObj(newproductName, newproductPrice, newproductImg, newProductId));
+    
+    putProductsOnList(products);
+}
+
+newProductAside.addEventListener("submit", newProduct);
 
 function productObj(name, price, img, id){
     this.name = name,
