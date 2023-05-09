@@ -20,17 +20,6 @@ body{
 }
 
 
-/* || Utilities */
-
-.no-bullets{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-
-
-
 /* || Header */
 
 header{
@@ -153,4 +142,16 @@ main{
 }
 .new-product input{
     width: 18rem;
+}
+
+
+/* || Utilities */
+
+.no-bullets{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.inactive{
+    display: none;
 }

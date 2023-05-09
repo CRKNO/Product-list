@@ -1,12 +1,11 @@
 const productList = document.querySelector(".product-list");
-const newProductAside = document.querySelector(".new-product-form");
+const newProductForm = document.querySelector(".new-product-form");
+const newProductAside = document.querySelector(".new-product");
+const createProductBtn = document.querySelector(".create-new-product-btn");
 
 const products = [];
 
 const closeIconSrc = "images/cross-23.png";
-
-let a;
-
 
 function newProduct(event){
     event.preventDefault();
@@ -19,9 +18,10 @@ function newProduct(event){
     products.push(new productObj(newproductName, newproductPrice, newproductImg, newProductId));
     
     putProductsOnList(products);
+    toggleListAndForm();
 }
 
-newProductAside.addEventListener("submit", newProduct);
+newProductForm.addEventListener("submit", newProduct);
 
 function productObj(name, price, img, id){
     this.name = name,
@@ -46,7 +46,7 @@ products.push(
     1500, 
     "https://images.pexels.com/photos/3786091/pexels-photo-3786091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     2)
-    )
+)
 
 function createProductElement(name, price, img, id){
 
@@ -133,3 +133,10 @@ function putProductsOnList(arr){
 }
 
 putProductsOnList(products);
+
+createProductBtn.addEventListener("click", toggleListAndForm);
+
+function toggleListAndForm(){
+    productList.classList.toggle("inactive");
+    newProductAside.classList.toggle("inactive");
+}
