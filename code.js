@@ -15,7 +15,9 @@ function newProduct(event){
     let newproductImg = event.target.children[2].children[1].value;
     let newProductId = products.length;
 
-    products.push(new productObj(newproductName, newproductPrice, newproductImg, newProductId));
+    if(newproductName && newproductPrice && newproductImg){
+        products.push(new productObj(newproductName, newproductPrice, newproductImg, newProductId));
+    }
     
     putProductsOnList(products);
     toggleListAndForm();
@@ -106,8 +108,7 @@ function createProductElement(name, price, img, id){
     /* Put product on list */
     productList.append(li);
 }
-function deleteProduct(event){ //tenes que eliminar el producto de la lista, 
-// ya te deje pronto lo del ID, vos podes campeon!
+function deleteProduct(event){
     let identifier = event.target.parentElement.parentElement.getAttribute("identifier");
 
     products.find(function(product){
@@ -139,4 +140,5 @@ createProductBtn.addEventListener("click", toggleListAndForm);
 function toggleListAndForm(){
     productList.classList.toggle("inactive");
     newProductAside.classList.toggle("inactive");
+    createProductBtn.classList.toggle("inactive");
 }
